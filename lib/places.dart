@@ -1,40 +1,17 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'properties.dart';
 import 'elements.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-void main() {
-  runApp(MyApp());
+class Places extends StatefulWidget {
+  @override
+  _PlacesState createState() => _PlacesState();
 }
 
-class MyApp extends StatelessWidget {
-  bool isLoggedIn=false;
-  // This widget is the root of your application.
+class _PlacesState extends State<Places> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Merchant Properties',
-      debugShowCheckedModeBanner: false,
-      color: Colors.pink,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        primarySwatch: Colors.pink,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+        return Scaffold(
       appBar: AppBar(
         title: Text('Merchant Properties Limited'),
         centerTitle: true,
@@ -47,47 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: <Widget>[
-            ClipPath(
-              clipper: MyClipper(),
-              child:Container(
-              padding: EdgeInsets.only(top: 30,left: 20,right: 20),
-              height: 300,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors:[
-                    Colors.pink,
-                    Colors.black,
-                  ]
-                )
-              ),
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 1),
-                  Expanded(child: Stack(
-                    children: <Widget>[
-                      SvgPicture.asset('assets/intro.svg',
-                      width: 300,
-                      fit: BoxFit.fitWidth,
-                      alignment: Alignment.topCenter,
-                    ),
-                    Positioned(
-                      top: 20,
-                      left: 100,
-                      right: 30,
-                      child: Text(
-                        'Merchant Properties Limited',
-                        style: TextStyle(color: Colors.white,fontSize:40,fontWeight: FontWeight.bold)
-                      )
-                    )
-                    ]
-                  ))
-                ]
-              )
-            )
-            ),
             Text(
               'Choose your Prefered Property Location',
               style: TextStyle(
@@ -167,22 +103,4 @@ class _HomeScreenState extends State<HomeScreen> {
       )
     );
   }
-}
-
-class  MyClipper extends CustomClipper<Path>{
-  @override
-  Path getClip(Size size){
-    var path = Path();
-    path.lineTo(0, size.height-80);
-    path.quadraticBezierTo(
-      size.width / 2, size.height,  size.width, size.height-80
-      );
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
   }
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper){
-    return false;
-  }
-}

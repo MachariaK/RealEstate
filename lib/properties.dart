@@ -60,7 +60,7 @@ class Category extends StatelessWidget {
           print('tapped');
         },
         child: Container(
-          width: 300.0,
+          width: 350.0,
             child: ListTile(
               title: Image.asset(image_location,
               width: 300.0,
@@ -69,7 +69,10 @@ class Category extends StatelessWidget {
               subtitle: Card(
                 margin: EdgeInsets.only(top:0),
                color: Colors.pink,
-                child:Text(image_caption,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
+                child:Padding(
+                  padding: const EdgeInsets.only(left:30.0,top: 10,bottom: 10),
+                  child: Text(image_caption,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+                )
               ),
           ),
         ),
