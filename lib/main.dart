@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
             ),
             new Padding(padding: const EdgeInsets.all(10),
-            child: Text('featured Property',
+            child: Text('featured Listing',
              style: TextStyle(
                 color: Colors.pink,
                 fontWeight: FontWeight.bold,

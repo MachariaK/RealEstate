@@ -13,10 +13,10 @@ class _CategoriesState extends State<Categories> {
         title: Text('Merchant Properties Limited'),
         centerTitle: true,
         backgroundColor: Colors.pink,
-      ),
+      ),   
       drawer: Drawer(
        child:  DrawerElements()
-      ),    
+      ),
       body: _Categories()
     );
   }

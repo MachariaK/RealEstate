@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'about.dart';
 import 'categories.dart';
 import 'main.dart';
+import 'listing.dart';
+import 'types.dart';
+import 'blog.dart';
+import 'contact.dart';
 class DrawerElements extends StatelessWidget {
   int i=0;
   @override
@@ -10,12 +15,24 @@ class DrawerElements extends StatelessWidget {
       child: ListView(
           children: <Widget>[
         new UserAccountsDrawerHeader(
-              accountName: Text('samuel mwangi'), accountEmail: Text('samuelmwangi729@gmail.com'),
+              accountName: Padding(
+                padding: const EdgeInsets.only(left:40),
+                child: Text('Merchant Properties Limited',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+                ),
+              ), accountEmail: Padding(
+                padding: EdgeInsets.only(left:30),
+                child:Text('\t\tYour All Stop Properties Managment Patner')
+              ),
              currentAccountPicture:
             GestureDetector(
+              child:Padding(padding: EdgeInsets.only(left:100),
               child: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Icon(Icons.person,size: 70.0,color: Colors.pink), 
+              )
               )
             ),
             decoration: 
@@ -78,7 +95,7 @@ class DrawerElements extends StatelessWidget {
           },
           child: Center(
             child: ListTile(
-                  title: Text('Categories',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
+                  title: Text('Rentals',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
                   leading: Icon(Icons.list,color: Colors.pink),
                   dense: true,
                 ),
@@ -89,10 +106,14 @@ class DrawerElements extends StatelessWidget {
           color: Colors.pink
         ),
          new InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              return Types();
+            }));
+          },
           child: Center(
             child: ListTile(
-                  title: Text('Properties /Property Type',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
+                  title: Text('Property(s) Type',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
                   leading:  SvgPicture.asset('assets/house.svg',
                  width: 25,
                  alignment: Alignment.centerLeft,
@@ -107,15 +128,15 @@ class DrawerElements extends StatelessWidget {
           color: Colors.pink
         ),
          new InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              return Listing();
+            }));
+          },
           child: Center(
             child: ListTile(
                   title: Text('Listing',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
-                  leading:  SvgPicture.asset('assets/menu.svg',
-                 width: 25,
-                 alignment: Alignment.centerLeft,
-                 fit: BoxFit.fitHeight,
-                 ),
+                  leading: Icon(Icons.menu, color: Colors.pink),
                   dense: true,
                 ),
           ),
@@ -125,7 +146,9 @@ class DrawerElements extends StatelessWidget {
           color: Colors.pink
         ),
          new InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>  Blog()));
+          },
           child: Center(
             child: ListTile(
                   title: Text('Blog',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
@@ -143,7 +166,9 @@ class DrawerElements extends StatelessWidget {
           color: Colors.pink
         ),
          new InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Contact()));
+          },
           child: Center(
             child: ListTile(
                   title: Text('Contact Us',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
@@ -158,7 +183,9 @@ class DrawerElements extends StatelessWidget {
         ),
         Divider(),
          new InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>About()));
+          },
           child: Center(
             child: ListTile(
                   title: Text('About Us',style:TextStyle(fontFamily:'Times New Roman',fontWeight: FontWeight.bold)),
